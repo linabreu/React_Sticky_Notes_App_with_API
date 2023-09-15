@@ -1,38 +1,168 @@
-.App {
-  text-align: center;
+body {
+    background-image: url(./Images/board.jpg);
+    background-size:cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.paper-shadow {
+	position: relative;
+  background-image:url("Images/paper.jpg");
+  background-size:cover;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  height: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+.header-title{
+  font-family: 'Permanent Marker', cursive;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.note-form {
+  background-color:#F2EC63;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+}
+
+input[type="text"]
+{
+    background: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    border-radius:0;
+    width:100%;
+    font-family: 'Permanent Marker', cursive;
+    font-size:20px;
+    color:black;
+    
+}
+
+textarea{
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+  width:100%;
+  outline: none;
+  background: transparent;
+  font-family: 'Reenie Beanie', cursive;
+}
+
+.submit-btn{
+  background-color:#8B69A5;
+  border: none;
   color: white;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border:2px solid #8B69A5;
 }
 
-.App-link {
-  color: #61dafb;
+.submit-btn:hover {
+  background-color: #4B3859;
+  border: 2px solid #4B3859;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.note-daddy:nth-child(odd) {
+  -webkit-transform:rotate(4deg);
+  -o-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);
+}
+
+.note-daddy:nth-child(even) {
+  -webkit-transform:rotate(-4deg);
+  -o-transform:rotate(-4deg);
+  -moz-transform:rotate(-4deg);
+}
+
+.note-container{
+  background-color: #F2EC63;
+  height:400px;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+
+}
+
+.note-body{
+  height:325px;
+}
+
+.note-title{
+  font-family: 'Permanent Marker', cursive;
+}
+.note-description{
+  font-family: 'Reenie Beanie', cursive;
+  margin-left:20px;
+  margin-right:20px;
+}
+
+.delete-btn, .update-btn {
+  border: none;
+  color: white;
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width:100%;
+
+}
+
+.delete-btn{
+  background-color:red;
+  border:1px solid darkred;
+  
+}
+
+.update-btn{
+  background-color:mediumseagreen;
+  border:1px solid darkgreen;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+  border: 2px solid darkred;
+}
+
+.update-btn:hover {
+  background-color: darkgreen;
+  border: 2px solid darkgreen;
+}
+
+.hidden{
+  display:none;
+}
+
+.btn-icon{
+  height:50px;
+  width:50px;
+}
+
+.trash-icon{
+  float:left
+}
+
+.pen-icon{
+  float:right;
+}
+
+.confirm-icon{
+  display:block;
+  margin:auto;
+  height:70px;
+  width:70px;
+}
+
+.create-icon{
+  display:block;
+  margin:auto;
+  height:100px;
+  width:100px;
+}
+
+.edit-form {
+  width:90%;
+  display:block;
+  margin:auto;
 }
