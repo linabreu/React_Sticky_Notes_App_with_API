@@ -21,17 +21,17 @@ export default function StickyNote({Title, Description, id, getFunction}) {
     }).then(() => getFunction())
   }
 
-  function updateNote(e, noteObj) {
-    e.preventDefault()
-
+  function updateNote(id) {
+    console.log(id)
+    console.log(newTitle)
+    console.log(newDescription)
     let updatedNote = 
     {
-      ...noteObj,
       Title: newTitle,
       Description: newDescription,
     }
 
-    fetch(`${API_URL}/${noteObj.id}`, {
+    fetch(`${API_URL}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -42,12 +42,14 @@ export default function StickyNote({Title, Description, id, getFunction}) {
 
 
 
+
+
   return (
     <div className = "col-sm-4  mb-2 p-3 note-daddy">
         <div className = "note-container">
         <div className = "row">
           <div className = 'col-6'><img className = "btn-icon trash-icon" src = {trash} onClick = {() => deleteNote(id)}/></div>
-          <div className = 'col-6'><img className = "btn-icon pen-icon" src = {pen} onClick = { () => {setcurrentContentVisibility("hidden"); seteditingVisibility("visible");}} /></div>
+          <div className = 'col-6'><img className = "btn-icon pen-icon" src = {pen} onClick = { () => {setcurrentContentVisibility("hidden"); seteditingVisibility("visible");}} onDoubleClick={ () => {setcurrentContentVisibility("visible"); seteditingVisibility("hidden")}} /></div>
         </div>
           <div className = {`${currentContentVisibility} note-body`}>
               <h2 className = "note-title text-center top-margin pt-2">{Title}</h2>
@@ -61,7 +63,7 @@ export default function StickyNote({Title, Description, id, getFunction}) {
               
               <div className="form-group mt-3 mb-5 transparent edit-form">
                   <textarea value={newDescription} onChange = {(e)=> setNewDescription(e.target.value)} className="no-border p-2 transparent" rows="6" placeholder ="Update your note! It can be anything you want!"></textarea>
-                  <img className = "confirm-icon mb-5" src = {confirm} onClick = {() => updateNote(id)}/>
+                  <img className = "confirm-icon mb-5" src = {confirm} onClick = {() => {updateNote(id); setcurrentContentVisibility("visible"); seteditingVisibility("hidden"); setNewTitle(""); setNewDescription("")}}/>
               </div>
           </div>
 
